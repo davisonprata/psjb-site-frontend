@@ -1,0 +1,60 @@
+.content {
+    width: 1100px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header {
+    background: url("../assets/images/textured_paper.png") repeat
+        var(--offwhite);
+
+    .content {
+        height: 130px;
+        position: relative;
+
+        img {
+            height: 200px;
+            position: absolute;
+        }
+
+        .logo-bg {
+            position: absolute;
+            width: 164px;
+            height: 198px;
+            border-radius: 85px/100px;
+            background: url("../assets/images/textured_paper.png") repeat
+                var(--offwhite);
+            left: 9px;
+        }
+    }
+}
+
+section#banners {
+    height: calc(100vh - 130px);
+    background-color: var(--offwhite);
+}
+
+section#last-posts {
+    background-color: var(--white);
+
+    .content {
+        height: 400px;
+        padding: 30px 0;
+    }
+}
+
+section#channels {
+    background-color: var(--red);
+
+    .content {
+        height: 150px;
+        padding: 30px 0;
+        color: var(--white);
+    }
+}
+
+footer {
+    .content {
+        padding: 30px 0;
+    }
+}

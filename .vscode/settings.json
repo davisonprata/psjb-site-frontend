@@ -1,4 +1,7 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.linkedEditing": true,
+    "editor.wordWrapColumn": 100,
+    "prettier.printWidth": 100
 }
