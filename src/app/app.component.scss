@@ -1,3 +1,7 @@
+@mixin main-bg {
+    background: url("../assets/images/kindajean.png") repeat var(--offwhite);
+}
+
 .content {
     width: 1100px;
     max-width: 1100px;
@@ -5,26 +9,131 @@
 }
 
 header {
-    background: url("../assets/images/textured_paper.png") repeat
-        var(--offwhite);
+    @include main-bg();
+
+    .ribbon {
+        position: absolute;
+        width: 100%;
+        height: 35px;
+        background-color: var(--red);
+        margin-top: 88px;
+        box-sizing: border-box;
+        border-top: 2px solid var(--white);
+        border-bottom: 2px solid var(--white);
+    }
 
     .content {
         height: 130px;
         position: relative;
+        display: flex;
+        flex-direction: row;
 
-        img {
-            height: 200px;
-            position: absolute;
+        .logo {
+            display: block;
+            width: 175px;
+
+            img {
+                height: 190px;
+                position: absolute;
+            }
+
+            .logo-bg {
+                position: absolute;
+                width: 143px;
+                height: 176px;
+                border-radius: 84px/103px;
+                @include main-bg();
+                left: 15px;
+                top: 7px;
+            }
         }
 
-        .logo-bg {
+        .header-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                display: block;
+                margin: 45px 0 8px;
+
+                h1 {
+                    padding: 0;
+                    margin: 0 0 0 -10px;
+                    float: left;
+                    display: block;
+                }
+
+                span {
+                    background-color: var(--yellow);
+                    padding: 5px;
+                    font-size: 0.75rem;
+                    margin: 7px 0 0 20px;
+                    float: left;
+                    border-radius: 4px;
+                }
+            }
+
+            nav {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                font-size: 0.8rem;
+                padding: 0 2px;
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        margin-right: 20px;
+
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: var(--white);
+
+                            &:hover {
+                                color: var(--yellow);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 70px;
+            padding: 4px 4px 2px;
+            border: 1px solid var(--offwhite);
+            height: 20px;
             position: absolute;
-            width: 164px;
-            height: 198px;
-            border-radius: 85px/100px;
-            background: url("../assets/images/textured_paper.png") repeat
-                var(--offwhite);
-            left: 9px;
+            top: 5px;
+            right: 0;
+            border-radius: 50px;
+            box-shadow: inset 1px 1px 8px -3px rgba(0, 0, 0, 0.52);
+
+            a {
+                img {
+                    width: 20px;
+                }
+
+                &:hover {
+                    img {
+                        opacity: 0.8;
+                    }
+                }
+            }
         }
     }
 }
@@ -32,6 +141,18 @@ header {
 section#banners {
     height: calc(100vh - 130px);
     background-color: var(--offwhite);
+
+    .banner-item {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 130px);
+
+        img {
+            width: 100%;
+        }
+    }
 }
 
 section#last-posts {

@@ -2,6 +2,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.linkedEditing": true,
-    "editor.wordWrapColumn": 100,
-    "prettier.printWidth": 100
+    "editor.wordWrapColumn": 150,
+    "prettier.printWidth": 150,
+    "editor.minimap.maxColumn": 10
 }
