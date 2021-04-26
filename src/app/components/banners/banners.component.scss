@@ -1,0 +1,16 @@
+section#banners {
+    height: calc(100vh - 130px);
+    background-color: var(--offwhite);
+
+    .banner-item {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 130px);
+
+        img {
+            width: 100%;
+        }
+    }
+}

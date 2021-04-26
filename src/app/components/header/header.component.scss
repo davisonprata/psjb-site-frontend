@@ -1,0 +1,135 @@
+@mixin main-bg {
+    background: url("../../../assets/images/kindajean.png") repeat var(--offwhite);
+}
+
+header {
+    @include main-bg();
+
+    .ribbon {
+        position: absolute;
+        width: 100%;
+        height: 35px;
+        background-color: var(--red);
+        margin-top: 88px;
+        box-sizing: border-box;
+        border-top: 2px solid var(--white);
+        border-bottom: 2px solid var(--white);
+    }
+
+    .content {
+        height: 130px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+
+        .logo {
+            display: block;
+            width: 175px;
+
+            img {
+                height: 190px;
+                position: absolute;
+            }
+
+            .logo-bg {
+                position: absolute;
+                width: 143px;
+                height: 176px;
+                border-radius: 84px/103px;
+                @include main-bg();
+                left: 15px;
+                top: 7px;
+            }
+        }
+
+        .header-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                display: block;
+                margin: 45px 0 8px;
+
+                h1 {
+                    padding: 0;
+                    margin: 0 0 0 -10px;
+                    float: left;
+                    display: block;
+                }
+
+                span {
+                    background-color: var(--yellow);
+                    padding: 3px 10px;
+                    font-size: 0.75rem;
+                    margin: 10px 0 0 20px;
+                    float: left;
+                    border-radius: 4px;
+                    font-weight: 500;
+                }
+            }
+
+            nav {
+                height: 35px;
+                display: flex;
+                align-items: center;
+                padding: 0 2px;
+                margin: 3px 0;
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        margin-right: 20px;
+                        font-size: 0.75rem;
+
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: var(--white);
+
+                            &:hover {
+                                color: var(--yellow);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 70px;
+            padding: 4px 4px 2px;
+            border: 1px solid var(--offwhite);
+            height: 20px;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            border-radius: 50px;
+            box-shadow: inset 1px 1px 8px -3px rgba(0, 0, 0, 0.52);
+
+            a {
+                img {
+                    width: 20px;
+                }
+
+                &:hover {
+                    img {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}

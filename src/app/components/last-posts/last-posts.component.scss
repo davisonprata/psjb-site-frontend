@@ -1,0 +1,79 @@
+section#last-posts {
+    background-color: var(--white);
+
+    .content {
+        height: 410px;
+        padding: 60px 0;
+
+        display: flex;
+        flex-direction: row;
+
+        .posts-section {
+            display: flex;
+            flex-direction: column;
+
+            .item {
+                position: relative;
+                overflow: hidden;
+
+                img { transition: transform .2s ease; }
+
+                &:hover {
+                    img { transform: scale(1.1); }
+                }
+
+                .info {
+                    position: absolute;
+                    z-index: 5;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    bottom: 0;
+                    left: 0;
+
+                    padding: 0 20px 15px 20px;
+                    box-sizing: border-box;
+                    background: linear-gradient(0deg ,rgba(0,0,0,0.7),rgba(0,0,0,0.4) 44%,rgba(0,0,0,0) 77%,rgba(0,0,0,0) 85%,rgba(0,0,0,0));
+
+                    .category {
+                        background-color: var(--ocre);
+                        padding: 5px;
+                        border-radius: 2px;
+                        margin-bottom: 8px;
+                        font-size: .7rem;
+                        color: var(--white);
+                    }
+
+                    .title {
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        color: var(--white);
+                    }
+                }
+
+                &.small {
+                    width: 410px;
+                    height: 200px;
+                    margin: 0 10px 10px 0;
+
+                    .info {
+                        width: 410px;
+                        height: 70px;
+                    }
+
+                    &:last-of-type { margin-bottom: 0; }
+                }
+
+                &.main {
+                    width: 680px;
+                    height: 410px;
+
+                    .info {
+                        width: 680px;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+    }
+}
