@@ -1,5 +1,11 @@
 <section id="banners">
-    <a href="#" class="banner-item">
-        <img src="https://picsum.photos/id/1000/1920/1080" alt="" />
-    </a>
+    <carousel #slider
+        [cellWidth]="'100%'"
+        [autoplay]="true"
+        [dots]="true"
+        [loop]="true"
+        [overflowCellsLimit]="1"
+        [transitionDuration]="600"
+        [images]="images">
+    </carousel>
 </section>

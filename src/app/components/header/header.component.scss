@@ -29,6 +29,7 @@ header {
             img {
                 height: 190px;
                 position: absolute;
+                z-index: 81000;
             }
 
             .logo-bg {
@@ -39,6 +40,7 @@ header {
                 @include main-bg();
                 left: 15px;
                 top: 7px;
+                z-index: 80000;
             }
         }
 
