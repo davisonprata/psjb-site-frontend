@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post.model';
+import { WpService } from 'src/app/services/wp.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    public posts: Array<Post> = [];
 
-  ngOnInit(): void {}
+    constructor(private wpService: WpService) {}
 
+    ngOnInit(): void {
+        this.posts = this.wpService.getAllPosts();
+    }
 }

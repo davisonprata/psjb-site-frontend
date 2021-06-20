@@ -1,3 +1,10 @@
 <app-banners></app-banners>
 
 <app-last-posts></app-last-posts>
+
+<div *ngFor="let post of posts">
+    <div>{{ post.date }}</div>
+    <div [innerHTML]="post.title.rendered"></div>
+    <div>{{ post.slug }}</div>
+    <div [innerHTML]="post.content.rendered"></div>
+</div>

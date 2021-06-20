@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 
@@ -12,6 +12,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LastPostsComponent } from './components/home/last-posts/last-posts.component';
 import { ChannelsComponent } from './components/channels/channels.component';
+import { appInitializer } from './services/initializer.service';
+import { WpService } from './services/wp.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -31,10 +34,13 @@ import { ChannelsComponent } from './components/channels/channels.component';
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         AppRoutingModule,
         IvyCarouselModule
     ],
-    providers: [],
+    providers: [
+        { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [WpService] }
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
