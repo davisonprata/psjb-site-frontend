@@ -32,6 +32,8 @@ header {
                 z-index: 81000;
             }
 
+            &:hover img { opacity: .85; }
+
             .logo-bg {
                 position: absolute;
                 width: 143px;
@@ -88,10 +90,9 @@ header {
                     li {
                         margin-right: 20px;
                         font-size: 0.75rem;
+                        position: relative;
 
-                        &:last-of-type {
-                            margin-right: 0;
-                        }
+                        &:last-of-type { margin-right: 0; }
 
                         a {
                             text-decoration: none;
@@ -101,7 +102,31 @@ header {
                                 color: var(--yellow);
                             }
                         }
+
+                        ul {
+                            display: none;
+                            left: -5px;
+                            position: absolute;
+                            width: 160px;
+                            z-index: 999999;
+                            padding-top: 18px;
+
+                            li {
+                                padding: 12px;
+                                opacity: .9;
+                                background: var(--red3);
+                                width: 100%;
+                            }
+                        }
+
+                        &:hover {
+                            ul {
+                                display: block;
+                            }
+                        }
                     }
+
+
                 }
             }
         }

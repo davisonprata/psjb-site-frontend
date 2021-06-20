@@ -4,21 +4,30 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BannersComponent } from './components/banners/banners.component';
-import { ChannelsComponent } from './components/channels/channels.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { CategoryComponent } from './components/category/category.component';
+import { SingleComponent } from './components/single/single.component';
+import { BannersComponent } from './components/home/banners/banners.component';
 import { HeaderComponent } from './components/header/header.component';
-import { LastPostsComponent } from './components/last-posts/last-posts.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { LastPostsComponent } from './components/home/last-posts/last-posts.component';
+import { ChannelsComponent } from './components/channels/channels.component';
+
+
 
 @NgModule({
     declarations: [
+        AppComponent,
         HeaderComponent,
+        FooterComponent,
+
+        HomeComponent,
         BannersComponent,
         LastPostsComponent,
         ChannelsComponent,
-        FooterComponent,
 
-        AppComponent
+        CategoryComponent,
+        SingleComponent,
     ],
     imports: [
         BrowserModule,
