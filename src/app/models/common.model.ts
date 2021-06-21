@@ -9,6 +9,7 @@ export interface Links {
     "wp:attachment": WpAttachment[]
     "wp:term": WpTerm[],
     "wp:post_type"?: WpPostType[],
+    "wp:featuredmedia"?: Featuredmedia[]
     curies: Cury[]
 }
 
@@ -65,6 +66,11 @@ export interface PredecessorVersion {
 export interface WpAttachment {
     href: string
 }
+
+export interface Featuredmedia {
+    embeddable: boolean
+    href: string
+  }
 
 export interface WpTerm {
     taxonomy: string

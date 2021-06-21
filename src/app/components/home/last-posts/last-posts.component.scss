@@ -61,6 +61,8 @@ section#last-posts {
                         height: 70px;
                     }
 
+                    img { min-width: 410px; }
+
                     &:last-of-type { margin-bottom: 0; }
                 }
 
@@ -72,6 +74,8 @@ section#last-posts {
                         width: 680px;
                         height: 70px;
                     }
+
+                    img { min-width: 680px; }
                 }
             }
         }

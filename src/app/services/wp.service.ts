@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 import { Category } from '../models/category.model';
 import { Media } from '../models/media.model';
 import { Post } from '../models/post.model';
@@ -23,6 +24,8 @@ export class WpService {
 
     public getAllPosts = (): Array<Post> => this.posts;
 
+    public getLastestPosts = (quantity: number): Array<Post> => this.posts.sort((a, b) => moment(b.date).diff(moment(a.date))).slice(0, quantity);
+
     public getPostBySlug = (slug: string): Post | undefined => this.posts.find(p => p.slug === slug);
 
     public getPostsByCategory = (slug: string): Array<Post> => {
@@ -35,5 +38,9 @@ export class WpService {
         return this.posts.filter(p => p.categories.includes(categoryId));
     }
 
-    public getMediaByPostId = (postId: number): Array<Media> => this.medias.filter(x => x.post === postId);
+    public getMediasByPostId = (postId: number): Array<Media> => this.medias.filter(x => x.post === postId);
+
+    public getMediaById = (mediaId: number): Media | undefined => this.medias.find(x => x.id === mediaId);
+
+    public getCategoryName = (categoryId: number): string | undefined => this.categories.find(x => x.id === categoryId)?.name;
 }

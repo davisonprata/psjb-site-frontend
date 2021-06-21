@@ -24,5 +24,4 @@ export class SingleComponent implements OnInit {
             this.post = this.wpService.getPostBySlug(slug);
         });
     }
-
 }

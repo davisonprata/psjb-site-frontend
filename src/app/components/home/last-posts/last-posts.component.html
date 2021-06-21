@@ -1,28 +1,21 @@
 <section id="last-posts">
     <div class="content">
         <div class="posts-section left">
-            <a routerLink="/" class="item small">
+            <a routerLink="/post/{{ post?.slug }}" class="item small" *ngFor="let post of nextLastestPosts">
                 <div class="info">
-                    <span class="category">Teste</span>
-                    <span class="title">Este é um artigo de teste</span>
+                    <span class="category">{{ getCategoryName(post.categories[0]) }}</span>
+                    <span class="title" [innerHTML]="post.title.rendered"></span>
                 </div>
-                <img src="https://picsum.photos/seed/faith/410/200" alt="" />
-            </a>
-            <a routerLink="/" class="item small">
-                <div class="info">
-                    <span class="category">Teste</span>
-                    <span class="title">Outro teste</span>
-                </div>
-                <img src="https://picsum.photos/seed/social/410/200" alt="" />
+                <img [src]="getFeaturedMedia(post.featured_media)" alt="" />
             </a>
         </div>
         <div class="posts-section main">
-            <a routerLink="/" class="item main">
+            <a routerLink="/post/{{ lastestPost.slug }}" class="item main">
                 <div class="info">
-                    <span class="category">Teste</span>
-                    <span class="title">Artigo de teste principal</span>
+                    <span class="category">{{ getCategoryName(lastestPost.categories[0]) }}</span>
+                    <span class="title" [innerHTML]="lastestPost.title.rendered"></span>
                 </div>
-                <img src="https://picsum.photos/seed/main/680/410" alt="" />
+                <img [src]="getFeaturedMedia(lastestPost.featured_media)" alt="" />
             </a>
         </div>
     </div>
