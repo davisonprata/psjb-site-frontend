@@ -1,18 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { Post } from "src/app/models/post.model";
-import { WpService } from "src/app/services/wp.service";
+import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post.model';
+import { WpService } from 'src/app/services/wp.service';
 
 @Component({
     selector: 'app-last-posts',
     templateUrl: './last-posts.component.html',
-    styleUrls: ['./last-posts.component.scss']
+    styleUrls: ['./last-posts.component.scss'],
 })
 export class LastPostsComponent implements OnInit {
-
     private lastPosts: Array<Post> = [];
 
-    public get lastestPost() { return this.lastPosts[0] };
-    public get nextLastestPosts() { return this.lastPosts.slice(1) };
+    public get lastestPost() {
+        return this.lastPosts[0];
+    }
+    public get nextLastestPosts() {
+        return this.lastPosts.slice(1);
+    }
 
     constructor(private wpService: WpService) {}
 
@@ -20,7 +23,8 @@ export class LastPostsComponent implements OnInit {
         this.lastPosts = this.wpService.getLastestPosts(3);
     }
 
-    public getCategoryName = (categoryId: number) => this.wpService.getCategoryName(categoryId);
+    public getCategoryName = (categoryId: number) =>
+        this.wpService.getCategoryName(categoryId);
 
     public getFeaturedMedia = (mediaId: number): string => {
         const media = this.wpService.getMediaById(mediaId);
