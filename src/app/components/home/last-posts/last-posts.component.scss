@@ -61,7 +61,11 @@ section#last-posts {
                         height: 70px;
                     }
 
-                    img { min-width: 410px; }
+                    img {
+                        width: 410px;
+                        height: 200px;
+                        object-fit: cover;
+                    }
 
                     &:last-of-type { margin-bottom: 0; }
                 }
@@ -75,7 +79,11 @@ section#last-posts {
                         height: 70px;
                     }
 
-                    img { min-width: 680px; }
+                    img {
+                        width: 680px;
+                        height: 410px;
+                        object-fit: cover;
+                    }
                 }
             }
         }

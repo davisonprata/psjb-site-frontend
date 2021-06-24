@@ -26,13 +26,17 @@ export class WpService {
 
     public getAllPosts = (): Array<Post> => this.posts;
 
-    public getLastestPosts = (quantity: number): Array<Post> =>
-        this.posts
+    public getLastestPosts = (quantity: number, categorySlug: string): Array<Post> => {
+        const categoryId = this.categories.find(x => x.slug === categorySlug)?.id;
+
+        return this.posts
+            .filter(x => !categoryId || x.categories.includes(categoryId))
             .sort((a, b) => moment(b.date).diff(moment(a.date)))
             .slice(0, quantity);
+    }
 
     public getPostBySlug = (slug: string): Post | undefined =>
-        this.posts.find((p) => p.slug === slug);
+        this.posts.find(p => p.slug === slug);
 
     public getPostsByCategory = (slug: string): Array<Post> => {
         const categoryId = this.categories.find((c) => c.slug === slug)?.id;
@@ -41,7 +45,7 @@ export class WpService {
             throw Error('Categoria não encontrada');
         }
 
-        return this.posts.filter((p) => p.categories.includes(categoryId));
+        return this.posts.filter(p => p.categories.includes(categoryId));
     };
 
     public getMediasByPostId = (postId: number): Array<Media> =>

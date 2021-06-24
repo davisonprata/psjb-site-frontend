@@ -20,7 +20,7 @@ export class LastPostsComponent implements OnInit {
     constructor(private wpService: WpService) {}
 
     ngOnInit() {
-        this.lastPosts = this.wpService.getLastestPosts(3);
+        this.lastPosts = this.wpService.getLastestPosts(3, "artigos");
     }
 
     public getCategoryName = (categoryId: number) =>
