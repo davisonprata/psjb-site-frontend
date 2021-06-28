@@ -6,7 +6,7 @@
                     <span class="category">{{ getCategoryName(post.categories[0]) }}</span>
                     <span class="title" [innerHTML]="post.title.rendered"></span>
                 </div>
-                <img [src]="getFeaturedMedia(post.featured_media)" alt="" />
+                <img [src]="getFeaturedMedia(post)" alt="" />
             </a>
         </div>
         <div class="posts-section main">
@@ -15,7 +15,7 @@
                     <span class="category">{{ getCategoryName(lastestPost.categories[0]) }}</span>
                     <span class="title" [innerHTML]="lastestPost.title.rendered"></span>
                 </div>
-                <img [src]="getFeaturedMedia(lastestPost.featured_media)" alt="" />
+                <img [src]="getFeaturedMedia(lastestPost)" alt="" />
             </a>
         </div>
     </div>

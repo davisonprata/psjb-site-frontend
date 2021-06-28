@@ -29,6 +29,11 @@ export class WordpressApi {
             .get(`${environment.wpApiUrl}/media`)
             .pipe(map((result) => result as Array<Media>));
 
+    public getMediaById = (mediaId: number | undefined): Observable<Media> =>
+        this.http
+            .get(`${environment.wpApiUrl}/media/${mediaId}`)
+            .pipe(map((result) => result as Media));
+
     public getAuthors = (): Observable<Array<Author>> =>
         this.http
             .get(`${environment.wpApiUrl}/users`)

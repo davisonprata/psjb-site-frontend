@@ -21,15 +21,19 @@ export class LastPostsComponent implements OnInit {
 
     ngOnInit() {
         this.lastPosts = this.wpService.getLastestPosts(3, "artigos");
+
+        for(const post of this.lastPosts) {
+            this.wpService.assureMediaIsLoaded(post.featured_media);
+        }
     }
 
     public getCategoryName = (categoryId: number) =>
         this.wpService.getCategoryName(categoryId);
 
-    public getFeaturedMedia = (mediaId: number): string => {
-        const media = this.wpService.getMediaById(mediaId);
-        if (!media) return 'https://picsum.photos/seed/main/680/410'; //teste
+    public getFeaturedMedia = (post: Post | undefined): string | undefined => {
+        const media = this.wpService.getMediaById(post?.featured_media);
+        //if (!media) return 'https://picsum.photos/seed/main/680/410'; //teste
 
-        return media.source_url;
+        return media?.source_url;
     };
 }
