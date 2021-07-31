@@ -17,3 +17,5 @@ RUN npm run build --prod
 FROM nginx:alpine
 LABEL maintainer="Vinícius Cardoso (vfcardoso3@gmail.com)"
 COPY --from=build-step /app/dist/psjb-site-frontend /usr/share/nginx/html
+
+#docker run -p 8282:80 -e WP_API_URL="https://localhost:8181" --name psjb-site-frontend vfcardoso/psjb-site-frontend
