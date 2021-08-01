@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    wpApiUrl: ""
+    wpApiUrl: "https://psjb-wp.azurewebsites.net/wp-json/wp/v2"
 };
