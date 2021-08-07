@@ -26,11 +26,11 @@ export class WpService {
 
     public getAllPosts = (): Array<Post> => this.posts;
 
-    public getLastestPosts = (quantity: number, categorySlug: string): Array<Post> => {
-        const categoryId = this.categories.find(x => x.slug === categorySlug)?.id;
+    public getLastestPosts = (quantity: number, categorySlugs: Array<string>): Array<Post> => {
+        const categoryIds = this.categories.filter(x => categorySlugs.includes(x.slug)).map(x => x.id);
 
         return this.posts
-            .filter(x => !categoryId || x.categories.includes(categoryId))
+            .filter(x => categoryIds.length === 0 || x.categories.some(x => categoryIds.includes(x)))
             .sort((a, b) => moment(b.date).diff(moment(a.date)))
             .slice(0, quantity);
     }

@@ -20,7 +20,7 @@ export class LastPostsComponent implements OnInit {
     constructor(private wpService: WpService) {}
 
     ngOnInit() {
-        this.lastPosts = this.wpService.getLastestPosts(3, "artigos");
+        this.lastPosts = this.wpService.getLastestPosts(3, ["artigos", "colunas"]);
 
         for(const post of this.lastPosts) {
             this.wpService.assureMediaIsLoaded(post.featured_media);
@@ -32,8 +32,6 @@ export class LastPostsComponent implements OnInit {
 
     public getFeaturedMedia = (post: Post | undefined): string | undefined => {
         const media = this.wpService.getMediaById(post?.featured_media);
-        //if (!media) return 'https://picsum.photos/seed/main/680/410'; //teste
-
         return media?.source_url;
     };
 }
