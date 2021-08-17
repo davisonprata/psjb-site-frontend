@@ -12,7 +12,7 @@ section#channels {
 
         .channel-item {
             height: 120px;
-            flex: 1;
+            flex: 1 0;
             background-color: var(--red2);
             border: 1px solid var(--red3);
             display: flex;
