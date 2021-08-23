@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    wpApiUrl: "https://psjb-wp.azurewebsites.net/wp-json/wp/v2"
+    wpApiUrl: "http://localhost:8181/wp-json/wp/v2"
 };
 
 /*
