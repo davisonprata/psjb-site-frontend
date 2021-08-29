@@ -13,10 +13,15 @@ export class HeaderComponent {
     constructor(router: Router) {
         router.events
             .pipe(filter(event => event instanceof NavigationStart))
-            .subscribe(() => this.hamburgerMenuActive = false);
+            .subscribe(this.handleNewRoute);
     }
 
     public showHamburgerMenu = () => {
         this.hamburgerMenuActive = !this.hamburgerMenuActive;
+    }
+
+    private handleNewRoute = () => {
+        this.hamburgerMenuActive = false;
+        window.scroll(0,0);
     }
 }
