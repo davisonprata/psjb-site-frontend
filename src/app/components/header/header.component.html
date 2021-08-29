@@ -11,9 +11,9 @@
                 <span>Macaé/RJ</span>
             </div>
 
-            <nav>
+            <nav [class.is-hamburger-active]="hamburgerMenuActive">
                 <ul>
-                    <li><a routerLink="/">Página inicial</a></li>
+                    <li *ngIf="!hamburgerMenuActive"><a routerLink="/">Página inicial</a></li>
                     <li><a routerLink="/historia">História</a></li>
                     <li>
                         <a routerLink="/">Estrutura</a>
@@ -27,6 +27,14 @@
                     <li><a routerLink="/contato">Contato</a></li>
                 </ul>
             </nav>
+
+            <button class="mobile-menu hamburger hamburger--spin" type="button" title="Menu"
+                [class.is-active]="hamburgerMenuActive"
+                (click)="showHamburgerMenu()">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </div>
         <div class="social">
             <a href="https://www.facebook.com/paroquiasaojoaobatistamacae" target="_blank" rel="noopener noreferrer">

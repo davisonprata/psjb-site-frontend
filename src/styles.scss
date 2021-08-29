@@ -1,5 +1,15 @@
 @import "assets/styles/base";
 
+
+$hamburger-layer-width         : 25px;
+$hamburger-layer-height        : 4px;
+$hamburger-layer-spacing       : 6px;
+$hamburger-hover-opacity       : 1;
+$hamburger-layer-color         : var(--red);
+
+$hamburger-types     : (spin);
+@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
+
 html {
     body {
         background: var(--offwhite);
@@ -17,8 +27,8 @@ html {
 
         @media (max-width: 768px) {
             .content {
-                width: calc( 100vw - 32px );
-                max-width: calc( 100vw - 32px );
+                width: calc( 100vw - 54px );
+                max-width: calc( 100vw - 54px );
                 margin: 0 auto;
             }
         }

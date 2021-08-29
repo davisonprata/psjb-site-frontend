@@ -25,4 +25,16 @@ section#channels {
             }
         }
     }
+
+    @media (max-width: 425px) {
+        .content {
+            flex-direction: column;
+            align-items: normal;
+            gap: 10px;
+
+            .channel-item {
+                padding: 25px 0;
+            }
+        }
+    }
 }

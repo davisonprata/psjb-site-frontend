@@ -125,3 +125,11 @@ section#last-posts {
         }
     }
 }
+
+@media (max-width: 425px) {
+    section#last-posts {
+        .content {
+            padding-top: 130px;
+        }
+    }
+}

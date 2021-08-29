@@ -29,20 +29,22 @@ header {
             img {
                 height: 190px;
                 position: absolute;
-                z-index: 81000;
+                z-index: 51000;
             }
 
             &:hover img { opacity: .85; }
+            &:active img { opacity: 1; }
+            &:link img { opacity: 1; }
 
             .logo-bg {
                 position: absolute;
-                width: 143px;
+                width: 144px;
                 height: 176px;
                 border-radius: 84px/103px;
                 @include main-bg();
                 left: 15px;
                 top: 7px;
-                z-index: 80000;
+                z-index: 50000;
             }
         }
 
@@ -129,6 +131,8 @@ header {
 
                 }
             }
+
+            .mobile-menu { display: none; }
         }
 
         .social {
@@ -160,7 +164,107 @@ header {
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
+        .content {
+            position: static;
 
+            .social { display: none; }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                margin-left: -87.5px;
+
+                img {
+                    left: 50%;
+                    margin-left: -87px;
+                }
+
+                .logo-bg {
+                    left: 50%;
+                    margin-left: -72px;
+                }
+            }
+
+            .header-info {
+                .title {
+                    margin: 195px 0 8px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    h1 {
+                        font-size: 1.3rem;
+                        margin: 0;
+                    }
+
+                    span {
+                        margin: 10px 0;
+                    }
+                }
+
+                nav {
+                    display: block;
+                    position: absolute;
+                    background-color: var(--white);
+                    opacity: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    overflow-y: auto;
+                    margin: 0;
+                    padding: 40px 30px;
+                    box-sizing: border-box;
+                    transition: all .2s linear;
+
+                    &.is-hamburger-active {
+                        z-index: 69999;
+                        opacity: .9;
+                    }
+
+                    ul {
+                        display: block;
+
+                        li {
+                            margin: 0;
+                            font-size: 1.6rem;
+                            position: static;
+                            margin-bottom: 30px;
+
+                            a {
+                                color: var(--red);
+                                font-weight: 500;
+                            }
+
+                            ul {
+                                display: block;
+                                position: static;
+                                width: 100%;
+                                margin: 15px 0 15px 35px;
+
+                                li {
+                                    font-size: 1.6rem;
+                                    position: static;
+                                    margin-bottom: 30px;
+                                    background: transparent;
+                                    opacity: 1;
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .mobile-menu {
+                    display: block;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    z-index: 99999;
+                }
+            }
+        }
     }
 }
