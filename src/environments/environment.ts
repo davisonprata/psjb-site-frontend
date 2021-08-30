@@ -1,6 +1,10 @@
 export const environment = {
     production: false,
-    wpApiUrl: "http://localhost:8181/wp-json/wp/v2"
+    siteTitle: "Paróquia São João Batista de Macaé/RJ",
+    siteDescription: "Notícias e informações sobre a Paróquia São João Batista de Macaé/RJ",
+    siteUrl: "http://localhost:4200",
+    siteImage: "http://localhost:4200/assets/images/og-image.jpg",
+    wpApiUrl: "http://localhost:8181/wp-json/wp/v2",
 };
 
 /*

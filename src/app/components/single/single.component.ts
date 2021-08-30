@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { Media } from 'src/app/models/media.model';
 import { Post } from 'src/app/models/post.model';
 import { WpService } from 'src/app/services/wp.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-single',
@@ -19,7 +21,11 @@ export class SingleComponent implements OnInit {
         return moment(this.post?.date).format('DD/MM/YYYY');
     }
 
-    constructor(private route: ActivatedRoute, private wpService: WpService) {}
+    constructor(
+        private route: ActivatedRoute,
+        private wpService: WpService,
+        private title: Title,
+        private meta: Meta) {}
 
     ngOnInit(): void {
         this.route.params.subscribe((params) => {
@@ -31,6 +37,27 @@ export class SingleComponent implements OnInit {
             this.featuredMedia = this.wpService.getMediaById(
                 this.post?.featured_media
             );
+
+            this.title.setTitle(`${environment.siteTitle} - ${this.post?.title}`);
+
+            if (this.post) {
+                this.meta.addTags([
+                    {name: 'title', content: this.post?.title.rendered || ''},
+                    {name: 'description', content: this.post?.excerpt.rendered || ''},
+                    {name: 'author', content: this.postAuthor || ''},
+                    {name: 'og:type', content: 'website'},
+                    {name: 'og:url', content: `${environment.siteUrl}/post/${slug}`},
+                    {name: 'og:title', content: this.post?.title.rendered || ''},
+                    {name: 'og:description', content: this.post?.excerpt.rendered || ''},
+                    {name: 'og:site_name', content: environment.siteTitle},
+                    {name: 'og:image', content: environment.siteImage},
+                    {name: 'twitter:card', content: 'summary_large_image'},
+                    {name: 'twitter:url', content: `${environment.siteUrl}/post/${slug}`},
+                    {name: 'twitter:title', content: this.post?.title.rendered || ''},
+                    {name: 'twitter:description', content: this.post?.excerpt.rendered || ''},
+                    {name: 'twitter:image', content: environment.siteImage},
+                ]);
+            }
         });
     }
 

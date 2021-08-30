@@ -63,6 +63,12 @@ export class WpService {
     public getCategoryName = (categoryId: number): string | undefined =>
         this.categories.find((x) => x.id === categoryId)?.name;
 
+    public getMainCategoryName = (categoryIds: Array<number>): string | undefined => {
+        const foundCategories = this.categories.filter((x) => categoryIds.includes(x.id) && x.name !== 'Banners');
+        return foundCategories.length > 0 ? foundCategories[0].name : 'Sem categoria';
+    }
+
+
     public getAuthorName = (authorId: number | undefined): string | undefined =>
         this.authors.find((x) => x.id === authorId)?.name;
 }

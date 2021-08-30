@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: 'estrutura/pastorais', component: StaticPageComponent },
     { path: 'estrutura/horarios-de-missas', component: StaticPageComponent },
     { path: 'estrutura/fazenda-esperanca', component: StaticPageComponent },
-    { path: 'estrutura/casa-dos-velhinhos', component: StaticPageComponent },
+    { path: 'estrutura/recanto-dos-idosos', component: StaticPageComponent },
     { path: 'contato', component: StaticPageComponent },
 
     { path: '**', component: HomeComponent }

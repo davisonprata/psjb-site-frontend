@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/models/category.model';
 import { Post } from 'src/app/models/post.model';
 import { WpService } from 'src/app/services/wp.service';
 
@@ -27,8 +28,8 @@ export class LastPostsComponent implements OnInit {
         }
     }
 
-    public getCategoryName = (categoryId: number) =>
-        this.wpService.getCategoryName(categoryId);
+    public getCategoryName = (categories: Array<number>) =>
+        this.wpService.getMainCategoryName(categories);
 
     public getFeaturedMedia = (post: Post | undefined): string | undefined => {
         const media = this.wpService.getMediaById(post?.featured_media);

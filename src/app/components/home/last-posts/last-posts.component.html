@@ -3,7 +3,7 @@
         <div class="posts-section left">
             <a routerLink="/post/{{ post?.slug }}" class="item small" *ngFor="let post of nextLastestPosts">
                 <div class="info">
-                    <span class="category">{{ getCategoryName(post.categories[0]) }}</span>
+                    <span class="category">{{ getCategoryName(post.categories) }}</span>
                     <span class="title" [innerHTML]="post.title.rendered"></span>
                 </div>
                 <img [src]="getFeaturedMedia(post)" alt="" />
@@ -12,7 +12,7 @@
         <div class="posts-section main">
             <a routerLink="/post/{{ lastestPost.slug }}" class="item main">
                 <div class="info">
-                    <span class="category">{{ getCategoryName(lastestPost.categories[0]) }}</span>
+                    <span class="category">{{ getCategoryName(lastestPost.categories) }}</span>
                     <span class="title" [innerHTML]="lastestPost.title.rendered"></span>
                 </div>
                 <img [src]="getFeaturedMedia(lastestPost)" alt="" />
