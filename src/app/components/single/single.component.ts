@@ -33,28 +33,32 @@ export class SingleComponent implements OnInit {
             if (!slug) throw Error('Post não encontrado');
 
             this.post = this.wpService.getPostBySlug(slug);
-            this.postAuthor = this.wpService.getAuthorName(this.post?.author);
+            this.postAuthor = this.wpService.getAuthorName(this.post?.author) || '';
             this.featuredMedia = this.wpService.getMediaById(
                 this.post?.featured_media
             );
 
-            this.title.setTitle(`${environment.siteTitle} - ${this.post?.title}`);
+            const postTitle = this.post?.title.rendered?.replace(/<[^>]*>?/gm, '') || '';
+            const postExcerptFull = this.post?.excerpt.rendered?.replace(/<[^>]*>?/gm, '') || '';
+            const postExcerpt = postExcerptFull.substring(0, postExcerptFull.length > 200 ? 200 : postExcerptFull.length) + '...';
+
+            this.title.setTitle(`${environment.siteTitle} - ${postTitle}`);
 
             if (this.post) {
                 this.meta.addTags([
-                    {name: 'title', content: this.post?.title.rendered || ''},
-                    {name: 'description', content: this.post?.excerpt.rendered || ''},
-                    {name: 'author', content: this.postAuthor || ''},
+                    {name: 'title', content: postTitle},
+                    {name: 'description', content: postExcerpt},
+                    {name: 'author', content: this.postAuthor},
                     {name: 'og:type', content: 'website'},
                     {name: 'og:url', content: `${environment.siteUrl}/post/${slug}`},
-                    {name: 'og:title', content: this.post?.title.rendered || ''},
-                    {name: 'og:description', content: this.post?.excerpt.rendered || ''},
+                    {name: 'og:title', content: postTitle},
+                    {name: 'og:description', content: postExcerpt},
                     {name: 'og:site_name', content: environment.siteTitle},
                     {name: 'og:image', content: environment.siteImage},
                     {name: 'twitter:card', content: 'summary_large_image'},
                     {name: 'twitter:url', content: `${environment.siteUrl}/post/${slug}`},
-                    {name: 'twitter:title', content: this.post?.title.rendered || ''},
-                    {name: 'twitter:description', content: this.post?.excerpt.rendered || ''},
+                    {name: 'twitter:title', content: postTitle},
+                    {name: 'twitter:description', content: postExcerpt},
                     {name: 'twitter:image', content: environment.siteImage},
                 ]);
             }
