@@ -34,7 +34,7 @@ import { CarouselComponent } from './components/home/carousel/carousel.component
         SingleComponent,
     ],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         AppRoutingModule
