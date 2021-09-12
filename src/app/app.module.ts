@@ -33,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
         SingleComponent,
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         HttpClientModule,
         AppRoutingModule,
         IvyCarouselModule
