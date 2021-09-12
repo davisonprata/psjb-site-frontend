@@ -2,10 +2,10 @@ import { WpService } from "./wp.service";
 
 export function appInitializer (wpService: WpService) {
     return async () => {
-        console.log('Initializing WP...');
+        console.log('syncronizing with cms...');
 
         await wpService.initialize();
 
-        console.log('WP initialized.');
+        console.log('syncronized.');
     }
 }
