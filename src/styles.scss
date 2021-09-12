@@ -1,13 +1,12 @@
 @import "assets/styles/base";
 
 
-$hamburger-layer-width         : 25px;
-$hamburger-layer-height        : 4px;
-$hamburger-layer-spacing       : 6px;
-$hamburger-hover-opacity       : 1;
-$hamburger-layer-color         : var(--red);
-
-$hamburger-types     : (spin);
+$hamburger-layer-width   : 25px;
+$hamburger-layer-height  : 4px;
+$hamburger-layer-spacing : 6px;
+$hamburger-hover-opacity : 1;
+$hamburger-layer-color   : var(--red);
+$hamburger-types         : (spin);
 @import '~hamburgers/_sass/hamburgers/hamburgers.scss';
 
 html {

@@ -1,7 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -15,6 +13,8 @@ import { ChannelsComponent } from './components/channels/channels.component';
 import { appInitializer } from './services/initializer.service';
 import { WpService } from './services/wp.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselComponent } from './components/home/carousel/carousel.component';
 
 
 
@@ -28,15 +28,16 @@ import { HttpClientModule } from '@angular/common/http';
         BannersComponent,
         LastPostsComponent,
         ChannelsComponent,
+        CarouselComponent,
 
         CategoryComponent,
         SingleComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        BrowserAnimationsModule,
         HttpClientModule,
-        AppRoutingModule,
-        IvyCarouselModule
+        AppRoutingModule
     ],
     providers: [
         { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [WpService] }

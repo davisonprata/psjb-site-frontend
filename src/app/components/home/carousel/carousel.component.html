@@ -1,0 +1,18 @@
+<div class="carousel">
+    <ng-container *ngFor="let image of images; let i = index">
+        <img @carouselAnimation *ngIf="i === currentSlide" [src]="image.src" class="slide" (click)="goToLink(image.link)" />
+    </ng-container>
+
+    <!-- controls -->
+    <button class="control prev" (click)="previous()">
+        <span class="arrow left"></span>
+    </button>
+    <button class="control next" (click)="next()">
+        <span class="arrow right"></span>
+    </button>
+
+    <!-- dots -->
+    <div class="dots">
+        <div class="dot" [class.dot-active]="i === currentSlide" *ngFor="let image of images; let i = index" (click)="goToSlide(i)"></div>
+    </div>
+</div>

@@ -2,34 +2,6 @@ section#banners {
     height: calc(100vh - 130px);
     background-color: var(--offwhite);
 
-    carousel {
-        height: calc(100vh - 130px) !important;
-
-        ::ng-deep .carousel-container {
-            .carousel-cells {
-                cursor: pointer;
-
-                .carousel-cell {
-                    img {
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                }
-            }
-
-            .carousel-dots {
-                padding-bottom: 10px;
-            }
-        }
-
-        ::ng-deep .carousel-arrows {
-            .carousel-arrow-prev { left: 20px }
-            .carousel-arrow-next { right: 20px }
-        }
-
-
-    }
-
     .banner-item {
         overflow: hidden;
         display: flex;

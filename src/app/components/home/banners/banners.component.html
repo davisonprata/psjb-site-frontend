@@ -1,12 +1,7 @@
 <section id="banners">
-    <carousel #slider
-        [cellWidth]="'100%'"
+    <app-carousel
+        [images]="images"
         [autoplay]="true"
-        [dots]="true"
-        [loop]="true"
-        [overflowCellsLimit]="0"
-        [lightDOM]="true"
-        [transitionDuration]="600"
-        [images]="images">
-    </carousel>
+        [pauseOnHover]="false">
+    </app-carousel>
 </section>
